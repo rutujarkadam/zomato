@@ -1,0 +1,94 @@
+<div class="container">
+    <form [formGroup]="registrationForm">
+      <mat-card>
+        <h2 class="heading">
+          <b>User Name</b>
+        </h2>
+  
+        <mat-form-field>
+          <input
+            class="input"
+            matInput
+            supervised_user_circle
+            type="text"
+            placeholder="name"
+            formControlName="username"
+          />
+        </mat-form-field>
+        <h2 class="heading">
+          <b>Password</b>
+        </h2>
+        <mat-form-field>
+          <input
+            class="input"
+            matInput
+            type="password"
+            placeholder="password"
+            formControlName="password"
+            autocomplete="off"
+          />
+          
+        </mat-form-field>
+        <h2 class="heading">
+          <b>Confirm Password</b>
+        </h2>
+        <mat-form-field>
+          <input 
+            class="input"
+            matInput
+            type="password"
+            placeholder="Confirmpassword"
+            formControlName="confirmPassword"
+            autocomplete="off"
+          />
+        </mat-form-field>
+        <h2 class="heading">
+          <b>Email ID</b>
+        </h2>
+        <mat-form-field>
+          <input
+            class="input"
+            matInput
+            type="email"
+            placeholder="email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <h2 class="heading">
+            <b>Address</b>
+        </h2>
+        <mat-form-field>
+            <input
+              class="input"
+              matInput
+              placeholder="address"
+              formControlName="address"
+            />
+        </mat-form-field>
+        <h2 class="heading">
+            <b>Contact No.</b>
+        </h2>
+        <mat-form-field>
+            <input
+              class="input"
+              matInput
+              placeholder="contactNo"
+              formControlName="contactNo"
+            />
+        </mat-form-field>
+  
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!registrationForm.valid"
+          (click)="register()"
+        >
+          add user
+        </button>
+        <p class="p">Already have an account?<a routerLink="/login" class="signUp">Sign Up</a></p>
+      </mat-card>
+    </form>
+  </div>
+  
+  

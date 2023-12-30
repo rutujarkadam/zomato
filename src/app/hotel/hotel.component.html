@@ -1,0 +1,35 @@
+<form [formGroup]="newHotel">
+    <mat-card class="cardContainer">
+        <h2>Add a new hotel</h2>
+        <h4>Name</h4>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+        </mat-form-field>
+        <h4>Location</h4>
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput type="text" formControlName="location">
+        </mat-form-field>
+        <h4>Type</h4>
+        <mat-form-field>
+            <mat-label>Type</mat-label>
+            <input matInput type="text" formControlName="type">
+        </mat-form-field>
+        <h4>Cuisine</h4>
+        <mat-form-field>
+            <mat-label>Cuisine</mat-label>
+            <input matInput type="text" formControlName="cuisines">
+        </mat-form-field>
+        <h4>Time</h4>
+        <mat-form-field>
+            <mat-label>Time</mat-label>
+            <input matInput type="text" formControlName="time">
+        </mat-form-field>
+        <button
+        mat-raised-button
+        color="primary"
+        (click)="add()"
+        >Add</button>
+    </mat-card>
+</form>

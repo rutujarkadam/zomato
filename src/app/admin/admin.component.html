@@ -1,0 +1,46 @@
+<form [formGroup]="foodItem">
+    <mat-card>
+        <h3>Add your dish</h3>
+        <h4>Select Hotel</h4>
+        <mat-form-field>
+            <mat-label>Hotel name</mat-label>
+            <mat-select formControlName="hotelName">
+                <mat-option *ngFor="let item of hotelInfo" [value]="item.name"
+                >{{item.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!-- <h4>Dish Category</h4>
+        <mat-form-field>
+            <mat-label>Dish Category</mat-label>
+            <mat-select formControlName="foodCategory" (selectionChange)="onCategorySelect()">
+                <mat-option *ngFor="let item of foodOptions" [value]="item.category"
+                >{{item.category}}</mat-option>
+            </mat-select>
+        </mat-form-field> -->
+        <h4>Dish Type</h4>
+        <mat-form-field>
+            <mat-label>Dish Type</mat-label>
+            <input matInput type="text" formControlName="foodType">
+            <!-- <mat-select formControlName="foodType" (selectionChange)="onTypeSelect()">
+                <mat-option *ngFor="let item of typeOptions" [value]="item"
+                >{{item}}</mat-option>
+            </mat-select> -->
+        </mat-form-field>
+        <h4>Dish Name</h4>
+        <mat-form-field>
+            <mat-label>Dish Name</mat-label>
+            <input matInput type="text" formControlName="foodName">
+            <!-- <mat-select formControlName="foodName" (selectionChange)="onDishSelect()">
+                <mat-option *ngFor="let item of dishOptions" [value]="item.name"
+                >{{item.name}}</mat-option>
+            </mat-select> -->
+        </mat-form-field>
+        <h4>Price</h4>
+        <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="foodPrice" type="number">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="submit()"
+        >Submit</button>
+    </mat-card>
+</form>
