@@ -9,12 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-foodOptions:any;
 hotelInfo:any;
 foodItem : FormGroup;
-typeOptions:any;
-dishOptions: any;
-currentCategory:any = [];
+  currentHotel: any;
 constructor(private service : ZomatoService,
   private fb : FormBuilder,
   private toastr : ToastrService){
@@ -23,18 +20,11 @@ constructor(private service : ZomatoService,
       foodName: ['', Validators.required],
       foodPrice: ['', Validators.required],
       foodType: ['', Validators.required],
+      foodCategory : ['', Validators.required]
     });
 }
 ngOnInit(){
-  this.getOptions();
   this.getHotelInfo();
-}
-getOptions(){
-  this.service.getFoodOptions().subscribe((res:any) => {
-    this.foodOptions = res.data[0].menu;
-    console.log(res);
-    console.log('foodOptions', this.foodOptions);
-  });
 }
 getHotelInfo(){
   this.service.getHotelInfo().subscribe((res:any) => {
@@ -44,32 +34,13 @@ getHotelInfo(){
     console.log('error', error);
   });
 }
-// onCategorySelect(){
-//   this.foodOptions.forEach((item:any) => {
-//     if(item.category == this.foodItem.controls['foodCategory'].value){
-//       this.typeOptions = item.foodType;
-//       this.currentCategory.push(item);
-//     }    
-//   });
-// }
-// onTypeSelect(){
-//   this.currentCategory.forEach((item:any) => {
-//     if(this.foodItem.controls['foodType'].value == 'starter'){
-//       this.dishOptions = item.starter;
-//     } else if(this.foodItem.controls['foodType'].value == 'mainCourse'){
-//       this.dishOptions = item.mainCourse;
-//     } else {
-//       this.dishOptions = item.dessert;
-//     }
-//   });
-// }
-// onDishSelect(){
-//   this.dishOptions.forEach((item:any) => {
-//     if(item.name == this.foodItem.controls['foodName'].value){
-//       this.foodItem.controls['foodPrice'].setValue(item.price);
-//     }
-//   });
-// }
+onHotelSelect(){
+  this.hotelInfo.filter((item:any) => {
+    if(item.name == this.foodItem.controls['hotelName'].value){
+      this.currentHotel = item
+    };
+  });
+}
 submit(){
   let id;
   let data = this.foodItem.value;
@@ -88,5 +59,7 @@ submit(){
   }, error => {
     console.log('error', error)
   });
+  this.foodItem.reset();
+  this.currentHotel='';
 }
 }

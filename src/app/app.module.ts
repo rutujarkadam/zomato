@@ -18,6 +18,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HotelComponent } from './hotel/hotel.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
+import { FoodsDashComponent } from './foods-dash/foods-dash.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
     RegistrationComponent,
     LoginComponent,
     DashboardComponent,
-    HotelComponent
+    HotelComponent,
+    FoodsDashComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
     MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

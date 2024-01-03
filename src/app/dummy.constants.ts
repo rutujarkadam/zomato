@@ -3,4 +3,5 @@ export class DummyConstants{
     public static createHotel = 'http://localhost:3000/createHotel';
     public static getHotelInfo = 'http://localhost:3000/getHotelInfo';
     public static listFoodItem = 'http://localhost:3000/listFoodItem';
+    public static getFoodItemHotelId = 'http://localhost:3000/getFoodItemHotelId';
 }
