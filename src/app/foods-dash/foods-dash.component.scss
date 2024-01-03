@@ -31,9 +31,9 @@
     padding: 10px;
     padding-left: 10px;
 }
-.hotels{
+.foods{
     width: 260px;
-    height: 350px;
+    height: 300px;
     padding: 10px;
 }
 .name{
@@ -43,4 +43,22 @@
 }
 mat-icon{
     margin:auto;
+}
+.img{
+    border-radius: 40%;
+    width: 240px;
+    height: 170px;
+}
+.category{
+    display: flex;
+    font-size: x-large;
+    flex-direction: row;
+    align-items: flex-end;
+
+}
+.p{
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    margin: 10px;
 }

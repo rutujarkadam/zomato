@@ -10,8 +10,8 @@
             <mat-form-field appearance="outline">
                 <mat-label>Location</mat-label>
                 <mat-select [(ngModel)]="location" (selectionChange)="locationSelect()">
-                    <mat-option *ngFor="let item of locationOptions" [value]="item">
-                    {{item}}</mat-option>
+                    <mat-option *ngFor="let item of foodsData" [value]="item.location">
+                    {{item.location}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-icon (click)="clearLocation()">cancel</mat-icon>
@@ -26,16 +26,28 @@
         </mat-card>
         <button mat-button class="logOut" (click)="logOut()">Log Out</button>
     </div>
+    <div class="category">
+        <p><b>Order by category -> </b></p>
+        <p (click)="onCategory('Veg')" class="p">Veg</p>
+        <p (click)="onCategory('Non veg')" class="p">Non veg</p>
+        <p (click)="onCategory('Vegan')" class="p">Vegan</p>
+        <p (click)="onCategory('All')" class="p">All</p>
+    </div>
+    <!-- <div class="category">
+        <p><b>Order by food type -> </b></p>
+        <p *ngFor="let item of allFoodInfo" 
+        (click)="ontype(item.foodType)"
+        class="p">{{item.foodType}}</p>
+        <p (click)="ontype('All')" class="p">All</p>
+    </div> -->
     <div class="cardContainer">
-        <mat-card *ngFor="let item of hotelInfo" class="hotels"
-        (click)="goToFoodPage(item._id)">
+        <mat-card *ngFor="let item of foodsData" class="foods">
             <img
-            src="../../assets/Images/{{item.name}}.jpeg"
-            width="240px"
-            height="170px">
-            <p class="name"><b>{{item.name}}</b></p><span><p><u>{{item.location}}</u></p></span>
-            <p>• {{item.cuisines}} • {{item.type}}</p>
-            <p>Time : {{item.time}}</p>
+            src="../../assets/Images/{{item.foodName}}.jpeg"
+            class="img">
+            <p class="name"><b>{{item.foodName}}</b></p>
+            <p><b>Rs.{{item.foodPrice}}</b></p>
+            <p>• {{item.foodType}} • {{item.foodCategory}}</p>
         </mat-card>
     </div>
 </div>
